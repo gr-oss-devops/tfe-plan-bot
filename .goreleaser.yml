@@ -6,7 +6,7 @@ builds:
   - env:
       - CGO_ENABLED=0
     ldflags:
-     - -s -w -X github.com/G-Research/tfe-plan-bot/version.version={{.Version}}
+      - -s -w -X github.com/G-Research/tfe-plan-bot/version.version={{.Version}}
     goos:
       - linux
       - windows
@@ -22,8 +22,8 @@ dockers:
       - "gresearch/tfe-plan-bot:v{{ .Major }}.{{ .Minor }}"
       - "gresearch/tfe-plan-bot:latest"
     extra_files:
-    - config/tfe-plan-bot.example.yml
-    - tmp.tar
+      - config/tfe-plan-bot.example.yml
+      - tmp.tar
 checksum:
   name_template: checksums.txt
   algorithm: sha256
