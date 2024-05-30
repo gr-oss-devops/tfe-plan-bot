@@ -76,3 +76,8 @@ jobs:
           args: release --clean
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+
+      - uses: ncipollo/release-action@v1
+        with:
+          name: ${{ github.ref_name }}
+          artifacts: "dist/**"
