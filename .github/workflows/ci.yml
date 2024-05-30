@@ -4,7 +4,6 @@ on:
   push:
     branches:
       - master
-      - ci-improvment
     tags:
       - 'v*'
   pull_request:
@@ -62,7 +61,7 @@ jobs:
         uses: goreleaser/goreleaser-action@v5
         with:
           version: ${{ env.GORELEASER_VERSION }}
-          args: build --clean
+          args: build --clean --snapshot
 
       - name: Run tests
         run: go test -v ./...
