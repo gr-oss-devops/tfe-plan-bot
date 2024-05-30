@@ -18,6 +18,7 @@ permissions:
 
 env:
   GO_VERSION: 1.22
+  GORELEASER_VERSION: v1.25.1
 
 jobs:
   lint:
@@ -60,7 +61,7 @@ jobs:
       - name: Run build
         uses: goreleaser/goreleaser-action@v5
         with:
-          version: v1.25.1
+          version: ${{ env.GORELEASER_VERSION }}
           args: build --clean
 
       - name: Run tests
@@ -91,13 +92,7 @@ jobs:
       - name: Run goreleaser
         uses: goreleaser/goreleaser-action@v5
         with:
-          version: v1.25.1
+          version: ${{ env.GORELEASER_VERSION }}
           args: release --clean
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-
-      - uses: ncipollo/release-action@v1
-        with:
-          name: ${{ github.ref_name }}
-          bodyFile: dist/CHANGELOG.md
-          artifacts: "dist/**"
