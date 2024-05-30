@@ -57,11 +57,13 @@ jobs:
           restore-keys: |
             ${{ runner.os }}-go-
 
-      - name: Run build
+      - name: Install goreleaser
         uses: goreleaser/goreleaser-action@v5
         with:
-          version: ${{ env.GORELEASER_VERSION }}
-          args: build --clean --snapshot
+          install-only: true
+      
+      - name: Build
+        run: goreleaser build --clean --snapshot
 
       - name: Run tests
         run: go test -v ./...
