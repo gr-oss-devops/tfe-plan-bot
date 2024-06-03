@@ -17,10 +17,10 @@ archives:
   - format: binary
 dockers:
   - image_templates:
-      - "ljubon/tfe-plan-bot:{{ .Tag }}"
-      - "ljubon/tfe-plan-bot:v{{ .Major }}"
-      - "ljubon/tfe-plan-bot:v{{ .Major }}.{{ .Minor }}"
-      - "ljubon/tfe-plan-bot:latest"
+      - "gresearch/tfe-plan-bot:{{ .Tag }}"
+      - "gresearch/tfe-plan-bot:v{{ .Major }}"
+      - "gresearch/tfe-plan-bot:v{{ .Major }}.{{ .Minor }}"
+      - "gresearch/tfe-plan-bot:latest"
     extra_files:
       - config/tfe-plan-bot.example.yml
       - tmp.tar
